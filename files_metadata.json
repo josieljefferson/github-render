@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-07T04:00:25.486Z",
+    "next_update": "2026-01-07T10:00:25.486Z",
+    "generator": "generate_metadata.js",
+    "version": "2.0",
+    "file_stats": {
+      "m3u": {
+        "count": 4,
+        "totalSize": 264729,
+        "totalSizeFormatted": "258.52 KB"
+      },
+      "epg": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "pdf": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "word": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "excel": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "powerpoint": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "image": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "video": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "audio": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "archive": {
+        "count": 11,
+        "totalSize": 8765003,
+        "totalSizeFormatted": "8.36 MB"
+      },
+      "text": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "code": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      },
+      "other": {
+        "count": 0,
+        "totalSize": 0,
+        "totalSizeFormatted": "0 Bytes"
+      }
+    },
+    "total_files": 15,
+    "total_size": 9029732,
+    "total_size_formatted": "8.61 MB",
+    "changes_since_last_update": {
+      "changed_files": 15,
+      "removed_files": 9,
+      "new_files": 9
+    }
+  },
+  "files": [
+    {
+      "name": "brazil1.xml.gz",
+      "type": "archive",
+      "size": 909229,
+      "sizeFormatted": "887.92 KB",
+      "updated": "2026-01-07T04:00:22.941Z",
+      "created": "2026-01-07T04:00:22.941Z",
+      "hash": "6e29e4f2b181ca06acef211885b29c5d",
+      "description": "Arquivo Compactado: Brazil1.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/brazil1.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/brazil1.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/brazil1.xml.gz"
+    },
+    {
+      "name": "brazil2.xml.gz",
+      "type": "archive",
+      "size": 68440,
+      "sizeFormatted": "66.84 KB",
+      "updated": "2026-01-07T04:00:22.618Z",
+      "created": "2026-01-07T04:00:22.618Z",
+      "hash": "ef8a01230aa84d71f005f65db9052416",
+      "description": "Arquivo Compactado: Brazil2.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/brazil2.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/brazil2.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/brazil2.xml.gz"
+    },
+    {
+      "name": "brazil3.xml.gz",
+      "type": "archive",
+      "size": 550040,
+      "sizeFormatted": "537.15 KB",
+      "updated": "2026-01-07T04:00:22.878Z",
+      "created": "2026-01-07T04:00:22.878Z",
+      "hash": "2936f7fd1cb8abba4fbca7a475c3cc64",
+      "description": "Arquivo Compactado: Brazil3.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/brazil3.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/brazil3.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/brazil3.xml.gz"
+    },
+    {
+      "name": "brazil4.xml.gz",
+      "type": "archive",
+      "size": 612424,
+      "sizeFormatted": "598.07 KB",
+      "updated": "2026-01-07T04:00:22.902Z",
+      "created": "2026-01-07T04:00:22.902Z",
+      "hash": "31a8674b9e93a2a67582e2a1acce4d74",
+      "description": "Arquivo Compactado: Brazil4.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/brazil4.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/brazil4.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/brazil4.xml.gz"
+    },
+    {
+      "name": "epg_ripper_BR1.xml.gz",
+      "type": "archive",
+      "size": 1443533,
+      "sizeFormatted": "1.38 MB",
+      "updated": "2026-01-07T04:00:22.107Z",
+      "created": "2026-01-07T04:00:22.107Z",
+      "hash": "2bd94a2b6a51e30614d4cea535ba3d1a",
+      "description": "Arquivo Compactado: Epg Ripper BR1.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/epg_ripper_BR1.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/epg_ripper_BR1.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/epg_ripper_BR1.xml.gz"
+    },
+    {
+      "name": "epg_ripper_PT1.xml.gz",
+      "type": "archive",
+      "size": 1388072,
+      "sizeFormatted": "1.32 MB",
+      "updated": "2026-01-07T04:00:22.183Z",
+      "created": "2026-01-07T04:00:22.183Z",
+      "hash": "d464418faf88eaa4d89ac72b78bcc10a",
+      "description": "Arquivo Compactado: Epg Ripper PT1.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/epg_ripper_PT1.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/epg_ripper_PT1.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/epg_ripper_PT1.xml.gz"
+    },
+    {
+      "name": "epgbrasil.xml.gz",
+      "type": "archive",
+      "size": 792963,
+      "sizeFormatted": "774.38 KB",
+      "updated": "2026-01-07T04:00:23.179Z",
+      "created": "2026-01-07T04:00:23.179Z",
+      "hash": "31ad66ce825a18f7a53706f3b0a76787",
+      "description": "Arquivo Compactado: Epgbrasil.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/epgbrasil.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/epgbrasil.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/epgbrasil.xml.gz"
+    },
+    {
+      "name": "epgbrasilportugal.xml.gz",
+      "type": "archive",
+      "size": 93333,
+      "sizeFormatted": "91.15 KB",
+      "updated": "2026-01-07T04:00:23.617Z",
+      "created": "2026-01-07T04:00:23.617Z",
+      "hash": "ee8ab32f8089c6e395baf8791400f101",
+      "description": "Arquivo Compactado: Epgbrasilportugal.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/epgbrasilportugal.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/epgbrasilportugal.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/epgbrasilportugal.xml.gz"
+    },
+    {
+      "name": "epgportugal.xml.gz",
+      "type": "archive",
+      "size": 1766515,
+      "sizeFormatted": "1.68 MB",
+      "updated": "2026-01-07T04:00:24.215Z",
+      "created": "2026-01-07T04:00:24.215Z",
+      "hash": "a5b047e759226517b04826f64f73e54e",
+      "description": "Arquivo Compactado: Epgportugal.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/epgportugal.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/epgportugal.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/epgportugal.xml.gz"
+    },
+    {
+      "name": "piauitv.m3u",
+      "type": "m3u",
+      "size": 5209,
+      "sizeFormatted": "5.09 KB",
+      "updated": "2026-01-07T04:00:21.960Z",
+      "created": "2026-01-07T04:00:21.959Z",
+      "hash": "25b394485e65c9aea669ac0b96c2bddb",
+      "description": "Playlist M3U: Piauitv",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/piauitv.m3u",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/piauitv.m3u",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/piauitv.m3u"
+    },
+    {
+      "name": "playlist.m3u",
+      "type": "m3u",
+      "size": 70795,
+      "sizeFormatted": "69.14 KB",
+      "updated": "2026-01-07T04:00:21.967Z",
+      "created": "2026-01-07T04:00:21.967Z",
+      "hash": "2c087d63a0417aff6380561f76163af0",
+      "description": "Playlist M3U: Playlist",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/playlist.m3u",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/playlist.m3u",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/playlist.m3u"
+    },
+    {
+      "name": "playlists.m3u",
+      "type": "m3u",
+      "size": 132364,
+      "sizeFormatted": "129.26 KB",
+      "updated": "2026-01-07T04:00:21.979Z",
+      "created": "2026-01-07T04:00:21.979Z",
+      "hash": "69c511aae36d603a35eefc476d91e177",
+      "description": "Playlist M3U: Playlists",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/playlists.m3u",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/playlists.m3u",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/playlists.m3u"
+    },
+    {
+      "name": "pornstars.m3u",
+      "type": "m3u",
+      "size": 56361,
+      "sizeFormatted": "55.04 KB",
+      "updated": "2026-01-07T04:00:21.974Z",
+      "created": "2026-01-07T04:00:21.974Z",
+      "hash": "0e59ab0563749c343facdf33945d029f",
+      "description": "Playlist M3U: Pornstars",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/pornstars.m3u",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/pornstars.m3u",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/pornstars.m3u"
+    },
+    {
+      "name": "portugal1.xml.gz",
+      "type": "archive",
+      "size": 544097,
+      "sizeFormatted": "531.34 KB",
+      "updated": "2026-01-07T04:00:23.842Z",
+      "created": "2026-01-07T04:00:23.842Z",
+      "hash": "513b03f6e5d2bcb36de6983738ef365f",
+      "description": "Arquivo Compactado: Portugal1.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/portugal1.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/portugal1.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/portugal1.xml.gz"
+    },
+    {
+      "name": "portugal2.xml.gz",
+      "type": "archive",
+      "size": 596357,
+      "sizeFormatted": "582.38 KB",
+      "updated": "2026-01-07T04:00:23.829Z",
+      "created": "2026-01-07T04:00:23.829Z",
+      "hash": "040a9f504959aef16caeab2ecdedd6ea",
+      "description": "Arquivo Compactado: Portugal2.Xml",
+      "download_url": "https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/main/portugal2.xml.gz",
+      "raw_url": "https://github.com/josieljefferson/josieljefferson.github.io/raw/main/portugal2.xml.gz",
+      "github_url": "https://github.com/josieljefferson/josieljefferson.github.io/blob/main/portugal2.xml.gz"
+    }
+  ]
+}

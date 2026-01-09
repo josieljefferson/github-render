@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system">
+<head>
+  <!-- Metadados básicos otimizados -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Repositório de downloads de arquivos mantido por Josiel Jefferson">
+  <meta name="keywords" content="downloads, arquivos, repositório, Josiel Jefferson">
+  <meta name="author" content="Josiel Jefferson">
+  
+  <!-- Metadados Open Graph melhorados -->
+  <meta property="og:title" content="Repositório de Downloads">
+  <meta property="og:description" content="Acesse diversos arquivos para download">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seusite.com">
+  <meta property="og:image" content="https://seusite.com/imagem-compartilhamento.jpg">
+  
+  <!-- Configuração de tema otimizada -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  
+  <title>Repositório de Downloads</title>
+  
+  <!-- Pré-carregamento otimizado -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://github.com" crossorigin>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  
+  <!-- Carregamento de fontes com fallback robusto -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+  
+  <!-- CSS crítico otimizado -->
+  <style>
+    /* Variáveis CSS modernizadas com fallbacks */
+    :root {
+      color-scheme: light dark;
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary-color: #2980b9;
+      --text-color: #1e293b;
+      --text-color-dark: #f1f5f9;
+      --bg-color: #ffffff;
+      --bg-color-dark: #0f172a;
+      --border-color: #e2e8f0;
+      --border-color-dark: #334155;
+      --card-bg: #f8fafc;
+      --card-bg-dark: #1e293b;
+      --error-color: #e74c3c;
+      --success-color: #2ecc71;
+      --transition: 0.2s ease;
+    }
+    
+    [data-theme="dark"] {
+      --primary-color: #3b82f6;
+      --primary-hover: #60a5fa;
+      --secondary-color: #4a9ff5;
+      --text-color: var(--text-color-dark);
+      --bg-color: var(--bg-color-dark);
+      --border-color: var(--border-color-dark);
+      --card-bg: var(--card-bg-dark);
+    }
+    
+    /* Reset moderno com melhor acessibilidade */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Base estilizada para melhor legibilidade */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+                   Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    /* Melhorias no cabeçalho */
+    header, footer {
+      padding: clamp(1rem, 2vw, 1.5rem);
+      text-align: center;
+    }
+    
+    header {
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: clamp(1.5rem, 3vw, 1.8rem);
+    }
+    
+    h2 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.3rem;
+    }
+    
+    /* Layout responsivo básico para containers */
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin-inline: auto;
+    }
+    
+    main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      flex: 1;
+    }
+    
+    section {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-color);
+    }
+    
+    .files-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .file-card {
+      padding: 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      transition: transform var(--transition), box-shadow var(--transition), 
+                 border-color var(--transition), background-color var(--transition);
+      background-color: var(--bg-color);
+    }
+    
+    .file-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .file-card h3 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .file-card p {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--text-color) 85%, transparent);
+    }
+    
+    .file-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color var(--transition);
+      font-size: 0.9rem;
+    }
+    
+    .file-card a:hover {
+      background-color: var(--primary-hover);
+    }
+    
+    .loading-card {
+      text-align: center;
+      padding: 30px;
+      grid-column: 1 / -1;
+    }
+    
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 15px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .error-message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 20px;
+      color: var(--error-color);
+      background-color: color-mix(in srgb, var(--error-color) 10%, transparent);
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--error-color) 30%, transparent);
+    }
+    
+    .success-message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 20px;
+      color: var(--success-color);
+      background-color: color-mix(in srgb, var(--success-color) 10%, transparent);
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--success-color) 30%, transparent);
+    }
+    
+    #metadata-info {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: color-mix(in srgb, var(--primary-color) 5%, transparent);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+    }
+    
+    #metadata-info p {
+      margin-bottom: 5px;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--text-color) 60%, transparent);
+      border-top: 1px solid var(--border-color);
+    }
+    
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    
+    footer a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    
+    .social-link {
+      color: var(--text-color);
+      transition: color var(--transition), transform var(--transition);
+      font-size: 1.2rem;
+    }
+    
+    .social-link:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+    
+    /* Controles de tema e ordenação */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .control-group label {
+      font-size: 0.9rem;
+    }
+    
+    .control-group select, .control-group input {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    
+    /* Barra de pesquisa */
+    .search-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    
+    #search {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      border-radius: 25px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: 0.95rem;
+      transition: box-shadow var(--transition), border-color var(--transition);
+    }
+    
+    #search:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 20%, transparent);
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: color-mix(in srgb, var(--text-color) 60%, transparent);
+    }
+    
+    /* Paginação */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    
+    .pagination button {
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color var(--transition), color var(--transition);
+    }
+    
+    .pagination button:hover:not(:disabled) {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .pagination button.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .pagination button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .pagination-info {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--text-color) 70%, transparent);
+    }
+    
+    /* Filtro de tipo */
+    .type-filter {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .type-filter button {
+      padding: 6px 12px;
+      border-radius: 15px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all var(--transition);
+      font-size: 0.85rem;
+    }
+    
+    .type-filter button:hover, .type-filter button.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    @media (max-width: 768px) {
+      .files-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .type-filter {
+        gap: 8px;
+      }
+      
+      .type-filter button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        width: 100%;
+      }
+      
+      .type-filter {
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho semântico melhorado -->
+  <header role="banner">
+    <div class="container">
+      <h1><i class="fas fa-download"></i> Repositório de Downloads</h1>
+      <p>Atualizado automaticamente - Última atualização: <span id="last-update"></span></p>
+      <div id="metadata-info"></div>
+      
+      <!-- Barra de pesquisa -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="search" placeholder="Pesquisar arquivos..." aria-label="Pesquisar arquivos">
+      </div>
+      
+      <!-- Filtro por tipo -->
+      <div class="type-filter">
+        <button data-type="all" class="active">Todos</button>
+        <button data-type="m3u,m3u8">Playlists M3U</button>
+        <button data-type="xml,xml.gz,xmltv,json,json.gz">Guias EPG</button>
+        <button data-type="pdf">PDF</button>
+        <button data-type="doc,docx,docm,dot,dotx,dotm,rtf,odt">Word</button>
+        <button data-type="xls,xlsx,xlsm,xlt,xltx,xltm,csv,ods">Excel</button>
+        <button data-type="ppt,pptx,pptm,pps,ppsx,ppsm,pot,potx,potm,odp">PowerPoint</button>
+        <button data-type="jpg,jpeg,png,gif,svg,bmp,tiff,webp,heic,avif,ico,eps,raw,psd,ai">Imagem</button>
+        <button data-type="mp4,mkv,avi,mov,wmv,flv,webm,mpg,mpeg,m4v,3gp,ogv,ts,m2ts,vob,divx,asf,rm,rmvb">Vídeo</button>
+        <button data-type="mp3,wav,aac,flac,ogg,wma,alac,aiff,m4a,amr,ape,opus,dsf,dff">Áudio</button>
+        <button data-type="zip,rar,7z,tar,gz,bz2,xz,z,lzh,arj,cab,iso,dmg,jar,war,tgz,tbz2,txz">Arquivo Compactado</button>
+        <button data-type="txt,md,log,ini,conf">Texto</button>
+        <button data-type="js,jsx,ts,tsx,py,java,cpp,c,cs,php,rb,go,swift,kt,rs,html,htm,css,scss,json,xml,yml,yaml,sh,bash,sql">Código</button>
+        <button data-type="other">Outros</button>
+      </div>
+      
+      <!-- Controles de interface melhorados -->
+      <div class="controls">
+        <div class="control-group">
+          <label for="sort">Ordenar por:</label>
+          <select id="sort" aria-label="Ordenar arquivos">
+            <option value="name">Nome (A-Z)</option>
+            <option value="nameDesc">Nome (Z-A)</option>
+            <option value="date">Data (Mais recentes)</option>
+            <option value="dateOldest">Data (Mais antigo)</option>
+            <option value="size">Tamanho (Maior)</option>
+            <option value="sizeSmallest">Tamanho (Menor)</option>
+            <option value="type">Tipo (A-Z)</option>
+            <option value="typeDesc">Tipo (Z-A)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="per-page">Itens por página:</label>
+          <select id="per-page" aria-label="Itens por página">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="theme">Tema:</label>
+          <select id="theme" aria-label="Escolher tema">
+            <option value="light">Claro</option>
+            <option value="dark">Escuro</option>
+            <option value="system" selected>Sistema</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal semântico -->
+  <main id="main-content" role="main" class="container">
+    <section id="files-section" aria-labelledby="files-heading">
+      <h2 id="files-heading"><i class="fas fa-file-alt"></i> Arquivos Disponíveis</h2>
+      <div class="files-container" id="files-container" aria-live="polite">
+        <div class="loading-card">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <p>Carregando arquivos...</p>
+        </div>
+      </div>
+      
+      <!-- Paginação -->
+      <div class="pagination" id="pagination"></div>
+      <div class="pagination-info" id="pagination-info"></div>
+    </section>
+  </main>
+
+  <!-- Rodapé semântico melhorado -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>Projeto mantido por <a href="https://github.com/josieljluz" target="_blank" rel="noopener noreferrer">Josiel Jefferson</a></p>
+      
+      <!-- Links sociais acessíveis -->
+      <div class="social-links" aria-label="Redes sociais">
+        <a href="https://github.com/josieljluz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub (abre em nova janela)">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/josieljluz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitLab (abre em nova janela)">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/+5589981073340" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp (abre em nova janela)">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://t.me/ElectronSpeedX" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram (abre em nova janela)">
+          <i class="fab fa-telegram" aria-hidden="true"></i>
+        </a>
+        <a href="https://facebook.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook (abre em nova janela)">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://instagram.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram (abre em nova janela)">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://twitter.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter (abre em nova janela)">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.threads.net/@josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Threads (abre em nova janela)">
+          <i class="fab fa-threads" aria-hidden="true"></i>
+        </a>
+        <a href="https://tiktok.com/@josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok (abre em nova janela)">
+          <i class="fab fa-tiktok" aria-hidden="true"></i>
+        </a>
+        <a href="https://linkedin.com/in/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn (abre em nova janela)">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:josiel@example.com" class="social-link" aria-label="Enviar e-mail">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://x.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter) (abre em nova janela)">
+          <i class="fab fa-x-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="https://bitbucket.org/josieljluz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Bitbucket (abre em nova janela)">
+          <i class="fab fa-bitbucket" aria-hidden="true"></i>
+        </a>
+      </div>
+      
+      <!-- Informação de build com data dinâmica -->
+      <p>© <span id="current-year"></span> Repositório de Downloads - Todos os direitos reservados</p>
+      <p class="build-info">Última atualização: <time id="build-date" datetime=""></time></p>
+    </div>
+  </footer>
+  
+  <script>
+    /**
+     * Função principal para inicialização otimizada
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Cache de elementos DOM para melhor performance
+      const domElements = {
+        themeSelect: document.getElementById('theme'),
+        sortSelect: document.getElementById('sort'),
+        perPageSelect: document.getElementById('per-page'),
+        searchInput: document.getElementById('search'),
+        filesContainer: document.getElementById('files-container'),
+        paginationContainer: document.getElementById('pagination'),
+        paginationInfo: document.getElementById('pagination-info'),
+        metadataInfo: document.getElementById('metadata-info'),
+        typeFilterButtons: document.querySelectorAll('.type-filter button')
+      };
+      
+      // Cache de dados para evitar reprocessamento
+      let fileCache = {
+        allFiles: [],
+        filteredFiles: [],
+        currentPage: 1,
+        itemsPerPage: 20,
+        currentSort: 'name',
+        currentTypeFilter: 'all',
+        currentSearchTerm: '',
+        fileTypeMap: null
+      };
+      
+      // Configuração do tema aprimorada
+      const setupTheme = () => {
+        const getSystemTheme = () => 
+          window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        
+        const applyTheme = (theme) => {
+          document.documentElement.setAttribute('data-theme', 
+            theme === 'system' ? getSystemTheme() : theme);
+        };
+        
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        applyTheme(savedTheme);
+        
+        // Atualiza o select
+        if (domElements.themeSelect) {
+          domElements.themeSelect.value = savedTheme;
+          domElements.themeSelect.addEventListener('change', (e) => {
+            localStorage.setItem('theme', e.target.value);
+            applyTheme(e.target.value);
+          });
+        }
+        
+        // Observa mudanças no tema do sistema
+        window.matchMedia('(prefers-color-scheme: dark)')
+          .addEventListener('change', () => {
+            if (localStorage.getItem('theme') === 'system') {
+              applyTheme('system');
+            }
+          });
+      };
+      
+      // Atualização de datas otimizada
+      const updateDates = () => {
+        const formatDate = (date) => 
+          new Intl.DateTimeFormat('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+          }).format(date).replace(',', ' -');
+        
+        const updateLastUpdateTime = () => {
+          const now = new Date();
+          const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          };
+          document.getElementById('last-update').textContent = now.toLocaleDateString('pt-BR', options);
+          document.getElementById('build-date').textContent = formatDate(now);
+          document.getElementById('build-date').setAttribute('datetime', now.toISOString());
+        };
+        
+        updateLastUpdateTime();
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+      };
+      
+      // Função para formatar tamanho de arquivo
+      const formatFileSize = (bytes) => {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      };
+
+      // Função para exibir metadados
+      const displayMetadata = (metadata) => {
+        const nextUpdate = new Date(metadata.next_update);
+
+        domElements.metadataInfo.innerHTML = `
+          <p><strong>Total de arquivos:</strong> ${metadata.total_files}</p>
+          <p><strong>Tamanho total:</strong> ${formatFileSize(metadata.total_size)}</p>
+          <p><strong>Próxima atualização:</strong> ${nextUpdate.toLocaleString('pt-BR')}</p>
+        `;
+      };
+      
+      // Mapeamento otimizado de tipos de arquivo
+      const createFileTypeMap = () => {
+        return {
+          // Playlists M3U
+          'm3u': { icon: '<i class="fas fa-list" aria-hidden="true"></i>', type: 'Playlist M3U', category: 'm3u' },
+          'm3u8': { icon: '<i class="fas fa-list" aria-hidden="true"></i>', type: 'Playlist M3U', category: 'm3u' },
+          
+          // Guias EPG - CORREÇÃO APLICADA AQUI
+          'xml': { icon: '<i class="fas fa-calendar-alt" aria-hidden="true"></i>', type: 'Guia EPG', category: 'epg' },
+          'xml.gz': { icon: '<i class="fas fa-calendar-alt" aria-hidden="true"></i>', type: 'Guia EPG', category: 'epg' },
+          'xmltv': { icon: '<i class="fas fa-calendar-alt" aria-hidden="true"></i>', type: 'Guia EPG', category: 'epg' },
+          'json': { icon: '<i class="fas fa-calendar-alt" aria-hidden="true"></i>', type: 'Guia EPG', category: 'epg' },
+          'json.gz': { icon: '<i class="fas fa-calendar-alt" aria-hidden="true"></i>', type: 'Guia EPG', category: 'epg' },
+          
+          // Documentos PDF
+          'pdf': { icon: '<i class="fas fa-file-pdf" aria-hidden="true"></i>', type: 'Documento PDF', category: 'pdf' },
+          
+          // Documentos Word
+          'doc': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'docx': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'docm': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'dot': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'dotx': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'dotm': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'rtf': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          'odt': { icon: '<i class="fas fa-file-word" aria-hidden="true"></i>', type: 'Documento Word', category: 'word' },
+          
+          // Planilhas Excel
+          'xls': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'xlsx': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'xlsm': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'xlt': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'xltx': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'xltm': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'csv': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          'ods': { icon: '<i class="fas fa-file-excel" aria-hidden="true"></i>', type: 'Planilha Excel', category: 'excel' },
+          
+          // Apresentações PowerPoint
+          'ppt': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'pptx': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'pptm': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'pps': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'ppsx': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'ppsm': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'pot': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'potx': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'potm': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          'odp': { icon: '<i class="fas fa-file-powerpoint" aria-hidden="true"></i>', type: 'Apresentação PowerPoint', category: 'powerpoint' },
+          
+          // Imagens
+          'jpg': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'jpeg': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'png': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'gif': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'svg': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'bmp': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'tiff': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'webp': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'heic': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'avif': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'ico': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'eps': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'raw': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'psd': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          'ai': { icon: '<i class="fas fa-file-image" aria-hidden="true"></i>', type: 'Imagem', category: 'image' },
+          
+          // Vídeos
+          'mp4': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'mkv': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'avi': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'mov': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'wmv': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'flv': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'webm': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'mpg': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'mpeg': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'm4v': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          '3gp': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'ogv': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'ts': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'm2ts': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'vob': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'divx': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'asf': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'rm': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          'rmvb': { icon: '<i class="fas fa-file-video" aria-hidden="true"></i>', type: 'Vídeo', category: 'video' },
+          
+          // Áudio
+          'mp3': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'wav': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'aac': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'flac': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'ogg': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'wma': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'alac': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'aiff': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'm4a': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'amr': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'ape': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'opus': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'dsf': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          'dff': { icon: '<i class="fas fa-file-audio" aria-hidden="true"></i>', type: 'Áudio', category: 'audio' },
+          
+          // Arquivos compactados
+          'zip': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'rar': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          '7z': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'tar': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'gz': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'bz2': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'xz': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'z': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'lzh': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'arj': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'cab': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'iso': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'dmg': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'jar': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'war': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'tgz': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'tbz2': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          'txz': { icon: '<i class="fas fa-file-archive" aria-hidden="true"></i>', type: 'Arquivo Compactado', category: 'archive' },
+          
+          // Texto
+          'txt': { icon: '<i class="fas fa-file-alt" aria-hidden="true"></i>', type: 'Arquivo de Texto', category: 'text' },
+          'md': { icon: '<i class="fas fa-file-alt" aria-hidden="true"></i>', type: 'Arquivo de Texto', category: 'text' },
+          'log': { icon: '<i class="fas fa-file-alt" aria-hidden="true"></i>', type: 'Arquivo de Texto', category: 'text' },
+          'ini': { icon: '<i class="fas fa-file-alt" aria-hidden="true"></i>', type: 'Arquivo de Texto', category: 'text' },
+          'conf': { icon: '<i class="fas fa-file-alt" aria-hidden="true"></i>', type: 'Arquivo de Texto', category: 'text' },
+          
+          // Código
+          'js': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'jsx': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'ts': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'tsx': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'py': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'java': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'cpp': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'c': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'cs': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'php': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'rb': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'go': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'swift': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'kt': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'rs': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'html': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'htm': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'css': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'scss': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'json': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'xml': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'yml': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'yaml': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'sh': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'bash': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          'sql': { icon: '<i class="fas fa-file-code" aria-hidden="true"></i>', type: 'Arquivo de Programação', category: 'code' },
+          
+          // Padrão para arquivos não reconhecidos
+          'default': { icon: '<i class="fas fa-file" aria-hidden="true"></i>', type: 'Arquivo', category: 'other' }
+        };
+      };
+      
+      // Função para obter informações do tipo de arquivo
+      const getFileTypeInfo = (fileName) => {
+        if (!fileCache.fileTypeMap) {
+          fileCache.fileTypeMap = createFileTypeMap();
+        }
+        
+        const fileExt = fileName.split('.').pop().toLowerCase();
+        return fileCache.fileTypeMap[fileExt] || fileCache.fileTypeMap.default;
+      };
+      
+      // Função para filtrar arquivos otimizada - CORREÇÃO APLICADA AQUI
+      const filterFiles = (files, searchTerm = '', typeFilter = 'all') => {
+        return files.filter(file => {
+          const matchesSearch = file.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                              (file.description && file.description.toLowerCase().includes(searchTerm.toLowerCase()));
+          
+          if (typeFilter === 'all') return matchesSearch;
+          
+          if (typeFilter === 'other') {
+            const fileInfo = getFileTypeInfo(file.name);
+            return matchesSearch && fileInfo.category === 'other';
+          }
+          
+          const filterTypes = typeFilter.split(',');
+          const fileNameLower = file.name.toLowerCase();
+          
+          // Verifica se o arquivo tem alguma das extensões do filtro
+          return matchesSearch && filterTypes.some(ext => {
+            // Para extensões compostas como "xml.gz", verifica se o arquivo termina com essa extensão
+            if (ext.includes('.')) {
+              return fileNameLower.endsWith('.' + ext);
+            }
+            // Para extensões simples, verifica a extensão normal
+            return fileNameLower.endsWith('.' + ext);
+          });
+        });
+      };
+      
+      // Função para criar paginação
+      const setupPagination = (filteredFiles, currentPage, itemsPerPage) => {
+        const totalPages = Math.ceil(filteredFiles.length / itemsPerPage);
+        
+        if (filteredFiles.length <= itemsPerPage) {
+          domElements.paginationContainer.innerHTML = '';
+          domElements.paginationInfo.textContent = `Mostrando todos os ${filteredFiles.length} arquivos`;
+          return filteredFiles;
+        }
+        
+        // Atualiza informações da paginação
+        const startItem = (currentPage - 1) * itemsPerPage + 1;
+        const endItem = Math.min(currentPage * itemsPerPage, filteredFiles.length);
+        domElements.paginationInfo.textContent = `Mostrando ${startItem}-${endItem} de ${filteredFiles.length} arquivos`;
+        
+        // Cria botões de paginação
+        let paginationHTML = '';
+        
+        // Botão Anterior
+        paginationHTML += `
+          <button id="prev-page" ${currentPage === 1 ? 'disabled' : ''}>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        `;
+        
+        // Botões de página
+        const maxVisiblePages = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+        
+        if (endPage - startPage + 1 < maxVisiblePages) {
+          startPage = Math.max(1, endPage - maxVisiblePages + 1);
+        }
+        
+        if (startPage > 1) {
+          paginationHTML += `<button data-page="1">1</button>`;
+          if (startPage > 2) {
+            paginationHTML += `<button disabled>...</button>`;
+          }
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+          paginationHTML += `
+            <button data-page="${i}" ${i === currentPage ? 'class="active"' : ''}>${i}</button>
+          `;
+        }
+        
+        if (endPage < totalPages) {
+          if (endPage < totalPages - 1) {
+            paginationHTML += `<button disabled>...</button>`;
+          }
+          paginationHTML += `<button data-page="${totalPages}">${totalPages}</button>`;
+        }
+        
+        // Botão Próximo
+        paginationHTML += `
+          <button id="next-page" ${currentPage === totalPages ? 'disabled' : ''}>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        `;
+        
+        domElements.paginationContainer.innerHTML = paginationHTML;
+        
+        // Adiciona event listeners
+        document.querySelectorAll('#pagination button[data-page]').forEach(button => {
+          button.addEventListener('click', () => {
+            fileCache.currentPage = parseInt(button.dataset.page);
+            displayFiles();
+          });
+        });
+        
+        document.getElementById('prev-page').addEventListener('click', () => {
+          if (fileCache.currentPage > 1) {
+            fileCache.currentPage--;
+            displayFiles();
+          }
+        });
+        
+        document.getElementById('next-page').addEventListener('click', () => {
+          if (fileCache.currentPage < totalPages) {
+            fileCache.currentPage++;
+            displayFiles();
+          }
+        });
+        
+        // Retorna os itens da página atual
+        return filteredFiles.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+      };
+      
+      // Função para exibir arquivos com ordenação, paginação e filtros
+      const displayFiles = () => {
+        const itemsPerPage = parseInt(domElements.perPageSelect.value) || 20;
+        const searchTerm = domElements.searchInput.value.trim();
+        const activeTypeFilter = document.querySelector('.type-filter button.active')?.dataset.type || 'all';
+        
+        // Atualiza cache
+        fileCache.itemsPerPage = itemsPerPage;
+        fileCache.currentSearchTerm = searchTerm;
+        fileCache.currentTypeFilter = activeTypeFilter;
+        
+        // Filtra os arquivos
+        fileCache.filteredFiles = filterFiles(fileCache.allFiles, searchTerm, activeTypeFilter);
+        
+        // Ordena os arquivos conforme o método selecionado
+        const sortedFiles = [...fileCache.filteredFiles].sort((a, b) => {
+          const aInfo = getFileTypeInfo(a.name);
+          const bInfo = getFileTypeInfo(b.name);
+          
+          switch(fileCache.currentSort) {
+            case 'name':
+              return a.name.localeCompare(b.name);
+            case 'nameDesc':
+              return b.name.localeCompare(a.name);
+            case 'date':
+              return new Date(b.updated) - new Date(a.updated);
+            case 'dateOldest':
+              return new Date(a.updated) - new Date(b.updated);
+            case 'size':
+              return b.size - a.size;
+            case 'sizeSmallest':
+              return a.size - b.size;
+            case 'type':
+              return aInfo.type.localeCompare(bInfo.type) || a.name.localeCompare(b.name);
+            case 'typeDesc':
+              return bInfo.type.localeCompare(aInfo.type) || a.name.localeCompare(b.name);
+            default:
+              return a.name.localeCompare(b.name);
+          }
+        });
+        
+        // Configura paginação
+        const paginatedFiles = setupPagination(sortedFiles, fileCache.currentPage, itemsPerPage);
+        
+        // Exibe os arquivos
+        domElements.filesContainer.innerHTML = '';
+        
+        if (paginatedFiles.length === 0) {
+          domElements.filesContainer.innerHTML = `
+            <div class="error-message">
+              <i class="fas fa-exclamation-circle"></i>
+              Nenhum arquivo encontrado com os critérios atuais.
+              ${searchTerm ? `<br>Termo de pesquisa: "${searchTerm}"` : ''}
+            </div>
+          `;
+          return;
+        }
+        
+        paginatedFiles.forEach(file => {
+          const card = document.createElement('div');
+          card.className = 'file-card';
+          
+          // Obtém informações do tipo de arquivo
+          const fileInfo = getFileTypeInfo(file.name);
+          
+          // Cria o HTML do card do arquivo
+          card.innerHTML = `
+            <h3>${fileInfo.icon} ${file.name}</h3>
+            <p class="file-type">Tipo: ${fileInfo.type}</p>
+            <p class="file-size">Tamanho: ${formatFileSize(file.size)}</p>
+            <p class="file-updated">Atualizado: ${new Date(file.updated).toLocaleString('pt-BR')}</p>
+            ${file.description ? `<p class="file-description">${file.description}</p>` : ''}
+            <a href="${file.name}" download aria-label="Baixar ${file.name}">
+              <i class="fas fa-download"></i> Baixar
+            </a>
+          `;
+          
+          // Adiciona o card ao container
+          domElements.filesContainer.appendChild(card);
+        });
+      };
+      
+      // Configura os listeners para controles
+      const setupControls = () => {
+        // Ordenação
+        if (domElements.sortSelect) {
+          domElements.sortSelect.addEventListener('change', (e) => {
+            fileCache.currentSort = e.target.value;
+            fileCache.currentPage = 1;
+            displayFiles();
+          });
+        }
+        
+        // Itens por página
+        if (domElements.perPageSelect) {
+          domElements.perPageSelect.addEventListener('change', () => {
+            fileCache.currentPage = 1;
+            displayFiles();
+          });
+        }
+        
+        // Barra de pesquisa
+        if (domElements.searchInput) {
+          // Debounce para evitar muitas chamadas durante a digitação
+          let searchTimeout;
+          domElements.searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+              fileCache.currentPage = 1;
+              displayFiles();
+            }, 300);
+          });
+          
+          // Também pesquisa ao pressionar Enter
+          domElements.searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+              fileCache.currentPage = 1;
+              displayFiles();
+            }
+          });
+        }
+        
+        // Filtros por tipo
+        domElements.typeFilterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            domElements.typeFilterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            fileCache.currentPage = 1;
+            displayFiles();
+          });
+        });
+      };
+      
+      // Carrega os dados dos arquivos
+      const loadFiles = () => {
+        fetch('files_metadata.json')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erro ao carregar metadados');
+            }
+            return response.json();
+          })
+          .then(data => {
+            fileCache.allFiles = data.files;
+            fileCache.fileTypeMap = createFileTypeMap();
+            displayFiles();
+            if (data.metadata) {
+              displayMetadata(data.metadata);
+            }
+          })
+          .catch(error => {
+            console.error('Erro ao carregar metadados:', error);
+            domElements.filesContainer.innerHTML = `
+              <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                Erro ao carregar arquivos. Tente atualizar a página.
+                <p>${error.message}</p>
+              </div>
+            `;
+          });
+      };
+      
+      // Inicialização dos módulos
+      setupTheme();
+      updateDates();
+      setupControls();
+      loadFiles();
+    });
+  </script>
+</body>
+</html>

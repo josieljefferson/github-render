@@ -1,0 +1,25 @@
+#services:
+#  - type: web
+#    name: iptv-server
+#    env: python
+#    buildCommand: pip install -r requirements.txt
+#    startCommand: python app.py e epg.py
+#    envVars:
+#      - key: PYTHON_VERSION
+#        value: 3.9.0
+
+services:
+  - type: web
+    name: epg-service
+    env: python
+    buildCommand: pip install -r requirements.txt && python epg.py
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+
+  - type: cron
+    name: epg-updater
+    schedule: "0 */6 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python epg.py
