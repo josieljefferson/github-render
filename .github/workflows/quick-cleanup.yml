@@ -1,0 +1,297 @@
+name: "🔄 Manutenção Unificada (Playlists + Limpeza + Deploy)"
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Diariamente às 00:00 BRT - Playlists
+    - cron: '0 15 * * *'  # 12:00 BRT - Limpeza de arquivos
+    - cron: '1 */8 * * *' # A cada 8 horas - Limpeza de execuções
+    - cron: '25 10 * * *' # 07:25 BRT - Deploy
+  workflow_dispatch:
+    inputs:
+      force_operation:
+        description: 'Forçar operação específica'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - playlists
+          - cleanup_files
+          - cleanup_runs
+          - deploy
+
+env:
+  TZ: America/Fortaleza
+
+permissions:
+  contents: write
+  actions: write
+  pages: write
+  id-token: write
+
+jobs:
+  # ✅ 1. JOB: Processamento de Playlists
+  process-playlists:
+    name: "📥 Processar Playlists"
+    runs-on: ubuntu-latest
+    
+    if: >-
+      (github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'playlists') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 3 * * *')
+    
+    steps:
+      - name: "🔽 Checkout do repositório"
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: "🐍 Configurar Python"
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: "📦 Cache de dependências"
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: "⚙️ Instalar dependências"
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: "▶️ Executar scripts de playlists"
+        run: |
+          python playlists.py
+          # python playlists2.py  # Descomente se necessário
+          # python Playlist.py    # Descomente se necessário
+
+      - name: "⏱️ Adicionar timestamp"
+        run: |
+          for file in $(find . -maxdepth 1 -type f \( -name "*.m3u" -o -name "*.xml.gz" \)); do
+            echo -e "\n\n# Atualizado em $(TZ='America/Fortaleza' date '+%d/%m/%Y - %H:%M:%S') BRT" >> "$file"
+          done
+
+      - name: "💾 Salvar alterações"
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [[ -n "$(git status --porcelain .)" ]]; then
+            git add .
+            git commit -m "🔄 Atualização automática das playlists"
+            git pull origin main --no-rebase || true
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main
+          else
+            echo "✅ Nenhuma alteração detectada."
+          fi
+
+  # ✅ 2. JOB: Limpeza de Arquivos
+  cleanup-files:
+    name: "🗑️ Limpar Arquivos Temporários"
+    runs-on: ubuntu-latest
+    needs: process-playlists
+    
+    if: >-
+      (github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'cleanup_files') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 15 * * *')
+    
+    steps:
+      - name: "🧾 Checkout do repositório"
+        uses: actions/checkout@v4
+
+      - name: "🗑️ Executar limpeza de arquivos"
+        run: |
+          # Arquivos para manter (não deletar)
+          keep_files=(
+            "README.md" "deploy.py" "playlists.py" "playlists2.py" "Playlist.py"
+            "downloads_files.py" "generate_metadata.js" "files_metadata.json"
+            ".gitignore" ".github" "index.html" "script.js" "style.css"
+          )
+          
+          # Lista de padrões de arquivos para deletar
+          patterns_to_delete=(
+            "coroa_vidaloka-*.mp4"
+            "majormarra-*.mp4" 
+            "marinahelenabr-*.jpg"
+            "*-*-*.jpg" "*-*-*.mp4" "*-*-*.png"
+          )
+          
+          echo "🔍 Procurando arquivos para limpeza..."
+          for pattern in "${patterns_to_delete[@]}"; do
+            for file in $pattern; do
+              if [[ -f "$file" ]]; then
+                # Verifica se o arquivo não está na lista de manter
+                should_delete=true
+                for keep in "${keep_files[@]}"; do
+                  if [[ "$file" == "$keep" ]]; then
+                    should_delete=false
+                    break
+                  fi
+                done
+                
+                if [[ "$should_delete" == true ]]; then
+                  echo "🗑️ Deletando: $file"
+                  rm -f "$file"
+                fi
+              fi
+            done
+          done
+
+      - name: "💾 Commit da limpeza"
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [[ -n "$(git status --porcelain .)" ]]; then
+            git add .
+            git commit -m "🧹 Limpeza de arquivos temporários"
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main
+          else
+            echo "✅ Nenhum arquivo para limpar."
+          fi
+
+  # ✅ 3. JOB: Limpeza de Execuções (CORRIGIDO)
+  cleanup-runs:
+    name: "🧹 Limpar Execuções Antigas"
+    runs-on: ubuntu-latest
+    needs: cleanup-files
+    
+    if: >-
+      (github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'cleanup_runs') ||
+      (github.event_name == 'schedule' && github.event.schedule == '1 */8 * * *')
+    
+    steps:
+      - name: "🔽 Checkout do repositório"
+        uses: actions/checkout@v4
+
+      - name: "🗑️ Limpar execuções antigas do workflow"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔍 Iniciando limpeza de execuções antigas..."
+          
+          # Nome do workflow atual
+          WORKFLOW_NAME="🔄 Manutenção Unificada (Playlists + Limpeza + Deploy)"
+          
+          # Obter o ID do workflow
+          WORKFLOW_ID=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows" \
+            | jq -r --arg name "$WORKFLOW_NAME" '.workflows[] | select(.name == $name) | .id')
+          
+          if [[ -z "$WORKFLOW_ID" ]]; then
+            echo "❌ Não foi possível encontrar o ID do workflow"
+            exit 1
+          fi
+          
+          echo "📋 Workflow ID: $WORKFLOW_ID"
+          
+          # Obter execuções com mais de 1 hora
+          ONE_HOUR_AGO=$(date -u -d '1 hour ago' +'%Y-%m-%dT%H:%M:%SZ')
+          
+          OLD_RUNS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$WORKFLOW_ID/runs?status=completed&per_page=30" \
+            | jq -r --arg time "$ONE_HOUR_AGO" '.workflow_runs[] | select(.status == "completed" and .created_at < $time) | .id')
+          
+          if [[ -z "$OLD_RUNS" ]]; then
+            echo "✅ Nenhuma execução antiga para limpar."
+            exit 0
+          fi
+          
+          echo "🗑️ Execuções para deletar:"
+          echo "$OLD_RUNS"
+          
+          # Deletar execuções antigas
+          COUNTER=0
+          for RUN_ID in $OLD_RUNS; do
+            echo "🧹 Deletando execução: $RUN_ID"
+            RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/runs/$RUN_ID")
+            
+            if [[ "$RESPONSE" == "204" ]]; then
+              echo "✅ Execução $RUN_ID deletada com sucesso"
+              ((COUNTER++))
+            else
+              echo "❌ Erro ao deletar execução $RUN_ID (HTTP $RESPONSE)"
+            fi
+            
+            # Pequena pausa para evitar rate limiting
+            sleep 1
+          done
+          
+          echo "🎉 Limpeza concluída: $COUNTER execuções antigas removidas"
+
+  # ✅ 4. JOB: Deploy para GitHub Pages
+  deploy-pages:
+    name: "🚀 Deploy GitHub Pages"
+    runs-on: ubuntu-latest
+    needs: cleanup-runs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    if: >-
+      (github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'deploy') ||
+      (github.event_name == 'schedule' && github.event.schedule == '25 10 * * *')
+    
+    steps:
+      - name: "🔽 Checkout do repositório"
+        uses: actions/checkout@v4
+
+      - name: "🏗️ Configurar Pages"
+        uses: actions/configure-pages@v4
+
+      - name: "📦 Upload artifact"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+          exclude-assets: |
+            *.py
+            *.sh
+            .github/workflows/*
+            scripts/
+
+      - name: "🚀 Deploy"
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # ✅ 5. JOB: Relatório Final (ADICIONADO)
+  report:
+    name: "📊 Relatório Final"
+    runs-on: ubuntu-latest
+    needs: [process-playlists, cleanup-files, cleanup-runs, deploy-pages]
+    if: always()
+    
+    steps:
+      - name: "📋 Gerar relatório"
+        run: |
+          echo "=========================================="
+          echo "📊 RELATÓRIO DE EXECUÇÃO"
+          echo "=========================================="
+          echo "📅 Data: $(TZ='America/Fortaleza' date)"
+          echo "🔧 Workflow: ${{ github.workflow }}"
+          echo "🎯 Trigger: ${{ github.event_name }}"
+          echo ""
+          echo "📋 STATUS DAS ETAPAS:"
+          echo "📥 Playlists: ${{ needs.process-playlists.result }}"
+          echo "🗑️ Limpeza: ${{ needs.cleanup-files.result }}"
+          echo "🧹 Execuções: ${{ needs.cleanup-runs.result }}"
+          echo "🚀 Deploy: ${{ needs.deploy-pages.result }}"
+          echo ""
+          echo "✅ Workflow concluído!"
+          echo "=========================================="

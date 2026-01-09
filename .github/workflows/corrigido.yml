@@ -1,0 +1,201 @@
+name: "🔄 X-Manutenção Unificada (Playlists + Limpeza + Deploy)"
+
+on:
+  schedule:
+    - cron: '0 3 * * *'    # 00:00 BRT - Playlists
+    - cron: '0 15 * * *'   # 12:00 BRT - Limpeza de arquivos
+    - cron: '1 */8 * * *'  # A cada 8 horas - Limpeza de execuções
+    - cron: '25 10 * * *'  # 07:25 BRT - Deploy
+  workflow_dispatch:
+    inputs:
+      force_operation:
+        description: 'Forçar operação específica'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - playlists
+          - cleanup_files
+          - cleanup_runs
+          - deploy
+
+# 🔒 Impede concorrência de pushes
+concurrency:
+  group: manutencao-unificada-main
+  cancel-in-progress: false
+
+env:
+  TZ: America/Fortaleza
+
+permissions:
+  contents: write
+  actions: write
+  pages: write
+  id-token: write
+
+# ==========================================================
+# 🟢 1. PROCESSAR PLAYLISTS
+# ==========================================================
+jobs:
+  process-playlists:
+    name: "📥 Processar Playlists"
+    runs-on: ubuntu-latest
+
+    if: >
+      github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'playlists' ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 3 * * *')
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: "📦 Instalar dependências"
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: "▶️ Executar scripts"
+        run: |
+          python playlists.py
+
+      - name: "⏱️ Timestamp"
+        run: |
+          for f in *.m3u *.xml.gz; do
+            [[ -f "$f" ]] && echo -e "\n# Atualizado em $(date '+%d/%m/%Y %H:%M:%S') BRT" >> "$f"
+          done
+
+      - name: "💾 Commit seguro"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin main
+          git rebase origin/main || git rebase --abort
+
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "🔄 Atualização automática das playlists"
+            git pull --rebase origin main || true
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main
+          else
+            echo "✅ Nenhuma alteração."
+          fi
+
+# ==========================================================
+# 🟡 2. LIMPEZA DE ARQUIVOS
+# ==========================================================
+  cleanup-files:
+    name: "🗑️ Limpar Arquivos"
+    runs-on: ubuntu-latest
+    needs: process-playlists
+
+    if: >
+      github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'cleanup_files' ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 15 * * *')
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "🧹 Limpeza"
+        run: |
+          patterns=(
+            "coroa_vidaloka-*.mp4"
+            "majormarra-*.mp4"
+            "*-*-*.jpg"
+            "*-*-*.png"
+            "*-*-*.mp4"
+            "playlists.log"
+          )
+
+          for p in "${patterns[@]}"; do
+            rm -f $p || true
+          done
+
+      - name: "💾 Commit seguro"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin main
+          git rebase origin/main || git rebase --abort
+
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "🧹 Limpeza automática de arquivos"
+            git pull --rebase origin main || true
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main
+          else
+            echo "✅ Nada para limpar."
+          fi
+
+# ==========================================================
+# 🔵 3. LIMPEZA DE EXECUÇÕES ANTIGAS
+# ==========================================================
+  cleanup-runs:
+    name: "🧹 Limpar Execuções"
+    runs-on: ubuntu-latest
+    needs: cleanup-files
+
+    if: >
+      github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'cleanup_runs' ||
+      (github.event_name == 'schedule' && startsWith(github.event.schedule, '1 */8'))
+
+    steps:
+      - name: "🗑️ Limpeza via API"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔍 Limpando execuções antigas..."
+          gh api repos/${{ github.repository }}/actions/runs \
+            --jq '.workflow_runs[] | select(.status=="completed") | .id' |
+          tail -n +10 |
+          while read id; do
+            gh api -X DELETE repos/${{ github.repository }}/actions/runs/$id
+          done
+
+# ==========================================================
+# 🟣 4. DEPLOY GITHUB PAGES
+# ==========================================================
+  deploy-pages:
+    name: "🚀 Deploy Pages"
+    runs-on: ubuntu-latest
+    needs: cleanup-runs
+
+    if: >
+      github.event.inputs.force_operation == 'all' ||
+      github.event.inputs.force_operation == 'deploy' ||
+      (github.event_name == 'schedule' && github.event.schedule == '25 10 * * *')
+
+    environment:
+      name: github-pages
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+          exclude-assets: |
+            *.py
+            *.sh
+            .github/workflows/*
+            scripts/
+
+      - uses: actions/deploy-pages@v4
