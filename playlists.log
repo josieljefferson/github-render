@@ -69,3 +69,74 @@
 2026-01-27 01:07:03,365 - INFO - Download concluído: /home/runner/work/github-render/github-render/epgportugal.xml.gz (1750134 bytes)
 2026-01-27 01:07:03,368 - INFO - Hash MD5 do arquivo: 7111c62f8b2e6068ec2bc15c09d42fb7
 2026-01-27 01:07:03,369 - INFO - Downloads concluídos. Sucessos: 17, Falhas: 0
+2026-01-27 04:07:44,749 - INFO - Limpando arquivos antigos em /home/runner/work/github-render/github-render...
+2026-01-27 04:07:44,750 - INFO - Arquivo removido: online.m3u
+2026-01-27 04:07:44,750 - INFO - Arquivo removido: epgportugal.xml.gz
+2026-01-27 04:07:44,750 - INFO - Arquivo removido: brazil3.xml.gz
+2026-01-27 04:07:44,750 - INFO - Arquivo removido: playlist.m3u
+2026-01-27 04:07:44,751 - INFO - Arquivo removido: epg_ripper_BR1.xml.gz
+2026-01-27 04:07:44,751 - INFO - Arquivo removido: playlists.m3u
+2026-01-27 04:07:44,752 - INFO - Arquivo removido: playlists-oficial.m3u
+2026-01-27 04:07:44,752 - INFO - Arquivo removido: portugal1.xml.gz
+2026-01-27 04:07:44,752 - INFO - Arquivo removido: epgbrasil.xml.gz
+2026-01-27 04:07:44,752 - INFO - Arquivo removido: piauitv.m3u
+2026-01-27 04:07:44,753 - INFO - Arquivo removido: brazil4.xml.gz
+2026-01-27 04:07:44,753 - INFO - Arquivo removido: epgbrasilportugal.xml.gz
+2026-01-27 04:07:44,753 - INFO - Arquivo removido: brazil2.xml.gz
+2026-01-27 04:07:44,753 - INFO - Arquivo removido: epg_ripper_PT1.xml.gz
+2026-01-27 04:07:44,753 - INFO - Arquivo removido: portugal2.xml.gz
+2026-01-27 04:07:44,753 - INFO - Arquivo removido: pornstars.m3u
+2026-01-27 04:07:44,754 - INFO - Arquivo removido: brazil1.xml.gz
+2026-01-27 04:07:44,754 - INFO - Iniciando downloads...
+2026-01-27 04:07:44,754 - INFO - Tentativa 1 de 3: Baixando de: https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/refs/heads/main/playlists/online.m3u
+2026-01-27 04:07:44,755 - INFO - Tentativa 1 de 3: Baixando de: https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/refs/heads/main/playlists/piauitv.m3u
+2026-01-27 04:07:44,755 - INFO - Tentativa 1 de 3: Baixando de: https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/refs/heads/main/playlists/playlist.m3u
+2026-01-27 04:07:44,756 - INFO - Tentativa 1 de 3: Baixando de: https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/refs/heads/main/playlists/playlists.m3u
+2026-01-27 04:07:44,756 - INFO - Tentativa 1 de 3: Baixando de: https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/refs/heads/main/playlists/playlists-oficial.m3u
+2026-01-27 04:07:44,798 - INFO - Download concluído: /home/runner/work/github-render/github-render/piauitv.m3u (5209 bytes)
+2026-01-27 04:07:44,798 - INFO - Download concluído: /home/runner/work/github-render/github-render/playlist.m3u (70795 bytes)
+2026-01-27 04:07:44,799 - INFO - Hash MD5 do arquivo: 25b394485e65c9aea669ac0b96c2bddb
+2026-01-27 04:07:44,799 - INFO - Tentativa 1 de 3: Baixando de: https://raw.githubusercontent.com/josieljefferson/josieljefferson.github.io/refs/heads/main/playlists/pornstars.m3u
+2026-01-27 04:07:44,801 - INFO - Hash MD5 do arquivo: 2c087d63a0417aff6380561f76163af0
+2026-01-27 04:07:44,801 - INFO - Tentativa 1 de 3: Baixando de: https://www.open-epg.com/files/brazil1.xml.gz
+2026-01-27 04:07:44,806 - INFO - Download concluído: /home/runner/work/github-render/github-render/playlists.m3u (132364 bytes)
+2026-01-27 04:07:44,806 - INFO - Hash MD5 do arquivo: 69c511aae36d603a35eefc476d91e177
+2026-01-27 04:07:44,806 - INFO - Tentativa 1 de 3: Baixando de: https://www.open-epg.com/files/brazil2.xml.gz
+2026-01-27 04:07:44,847 - INFO - Download concluído: /home/runner/work/github-render/github-render/playlists-oficial.m3u (4150356 bytes)
+2026-01-27 04:07:44,855 - INFO - Hash MD5 do arquivo: 1ea98241b57c1dc4666679e2b0668f40
+2026-01-27 04:07:44,856 - INFO - Tentativa 1 de 3: Baixando de: https://www.open-epg.com/files/brazil3.xml.gz
+2026-01-27 04:07:44,888 - INFO - Download concluído: /home/runner/work/github-render/github-render/pornstars.m3u (56361 bytes)
+2026-01-27 04:07:44,888 - INFO - Hash MD5 do arquivo: 0e59ab0563749c343facdf33945d029f
+2026-01-27 04:07:44,888 - INFO - Tentativa 1 de 3: Baixando de: https://www.open-epg.com/files/brazil4.xml.gz
+2026-01-27 04:07:44,894 - INFO - Download concluído: /home/runner/work/github-render/github-render/online.m3u (78680 bytes)
+2026-01-27 04:07:44,895 - INFO - Hash MD5 do arquivo: 36705e2d0b7a66925e8e611a5818ce1d
+2026-01-27 04:07:44,895 - INFO - Tentativa 1 de 3: Baixando de: https://epgshare01.online/epgshare01/epg_ripper_BR1.xml.gz
+2026-01-27 04:07:45,062 - INFO - Download concluído: /home/runner/work/github-render/github-render/epg_ripper_BR1.xml.gz (1425396 bytes)
+2026-01-27 04:07:45,065 - INFO - Hash MD5 do arquivo: 38837b9b84f0622a48f521cbe20656ce
+2026-01-27 04:07:45,065 - INFO - Tentativa 1 de 3: Baixando de: https://epgshare01.online/epgshare01/epg_ripper_PT1.xml.gz
+2026-01-27 04:07:45,165 - INFO - Download concluído: /home/runner/work/github-render/github-render/epg_ripper_PT1.xml.gz (1415119 bytes)
+2026-01-27 04:07:45,167 - INFO - Hash MD5 do arquivo: eadd1e2d7af20af5b6b2beb61d7f7657
+2026-01-27 04:07:45,168 - INFO - Tentativa 1 de 3: Baixando de: https://m3u4u.com/epg/3wk1y24kx7uzdevxygz7
+2026-01-27 04:07:45,617 - INFO - Download concluído: /home/runner/work/github-render/github-render/brazil2.xml.gz (70724 bytes)
+2026-01-27 04:07:45,618 - INFO - Hash MD5 do arquivo: f6a3a95d3123be4dcc4c4b1a2a3398e6
+2026-01-27 04:07:45,618 - INFO - Tentativa 1 de 3: Baixando de: https://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-01-27 04:07:46,080 - INFO - Download concluído: /home/runner/work/github-render/github-render/brazil3.xml.gz (555066 bytes)
+2026-01-27 04:07:46,082 - INFO - Hash MD5 do arquivo: 4975c4ede1e0fb8f1109a08f9288457d
+2026-01-27 04:07:46,082 - INFO - Tentativa 1 de 3: Baixando de: https://m3u4u.com/epg/jq2zy9epr3bwxmgwyxr5
+2026-01-27 04:07:46,098 - INFO - Download concluído: /home/runner/work/github-render/github-render/brazil4.xml.gz (619125 bytes)
+2026-01-27 04:07:46,099 - INFO - Hash MD5 do arquivo: ad837dcdb32e0953172b7886bff6d093
+2026-01-27 04:07:46,099 - INFO - Tentativa 1 de 3: Baixando de: https://www.open-epg.com/files/portugal1.xml.gz
+2026-01-27 04:07:46,201 - INFO - Download concluído: /home/runner/work/github-render/github-render/brazil1.xml.gz (926595 bytes)
+2026-01-27 04:07:46,203 - INFO - Hash MD5 do arquivo: 78d2dac940737687a7e3d4cd98b8cefa
+2026-01-27 04:07:46,203 - INFO - Tentativa 1 de 3: Baixando de: https://www.open-epg.com/files/portugal2.xml.gz
+2026-01-27 04:07:47,051 - INFO - Download concluído: /home/runner/work/github-render/github-render/epgbrasil.xml.gz (802930 bytes)
+2026-01-27 04:07:47,052 - INFO - Hash MD5 do arquivo: eb28428d6fb3f4b9949412ce832e6443
+2026-01-27 04:07:47,197 - INFO - Download concluído: /home/runner/work/github-render/github-render/portugal2.xml.gz (593544 bytes)
+2026-01-27 04:07:47,198 - INFO - Hash MD5 do arquivo: ef71778587ab657d7fbb3356890ba8a0
+2026-01-27 04:07:47,256 - INFO - Download concluído: /home/runner/work/github-render/github-render/portugal1.xml.gz (552001 bytes)
+2026-01-27 04:07:47,257 - INFO - Hash MD5 do arquivo: 26928b3040309a30d3f6d4e421c13bdf
+2026-01-27 04:07:47,683 - INFO - Download concluído: /home/runner/work/github-render/github-render/epgportugal.xml.gz (1750134 bytes)
+2026-01-27 04:07:47,686 - INFO - Hash MD5 do arquivo: 7111c62f8b2e6068ec2bc15c09d42fb7
+2026-01-27 04:07:48,257 - INFO - Download concluído: /home/runner/work/github-render/github-render/epgbrasilportugal.xml.gz (47214 bytes)
+2026-01-27 04:07:48,257 - INFO - Hash MD5 do arquivo: ba7630fd716cb0423d1243bff96e00d8
+2026-01-27 04:07:48,258 - INFO - Downloads concluídos. Sucessos: 17, Falhas: 0
